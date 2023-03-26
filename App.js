@@ -3,12 +3,21 @@ import { StyleSheet, StatusBar, Platform, View } from "react-native";
 
 export default function App() {
   return (
-    <View style={{ backgroundColor: "#fff", flex: 1, flexDirection: "row" }}>
+    <View
+      style={{
+        backgroundColor: "#fff",
+        flex: 1,
+        flexDirection: "row", // horizontal
+        justifyContent: "center", // main axis
+        alignItems: "center", // secondary axis
+      }}
+    >
       <View
         style={{
           backgroundColor: "dodgerblue",
           width: 100,
-          height: 100,
+          height: 200,
+          alignSelf: "flex-start",
         }}
       />
       <View
@@ -22,7 +31,7 @@ export default function App() {
         style={{
           backgroundColor: "tomato",
           width: 100,
-          height: 100,
+          height: 50,
         }}
       />
     </View>
