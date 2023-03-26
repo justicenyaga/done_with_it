@@ -1,10 +1,9 @@
 import { StatusBar } from "expo-status-bar";
-import { Button, StyleSheet, Alert } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { Button, StyleSheet, Alert, SafeAreaView } from "react-native";
 
 export default function App() {
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={[styles.container, myStyles]}>
       <Button
         color="orange"
         title="Click Me"
@@ -15,6 +14,8 @@ export default function App() {
     </SafeAreaView>
   );
 }
+
+const myStyles = { backgroundColor: "dodgerblue" };
 
 const styles = StyleSheet.create({
   container: {
