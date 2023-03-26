@@ -1,6 +1,7 @@
 {
   "expo": {
     "name": "DoneWithIt",
+    "description": "An app to sell your old stuff that you don't need anymore",
     "slug": "DoneWithIt",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -11,9 +12,7 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     },
