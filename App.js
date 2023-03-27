@@ -1,6 +1,7 @@
 import React from "react";
 import { View } from "react-native";
 
+import AppButton from "./app/components/AppButton";
 import AppText from "./app/components/AppText";
 
 export default function App() {
@@ -12,7 +13,7 @@ export default function App() {
         alignItems: "center",
       }}
     >
-      <AppText>I love React Native!</AppText>
+      <AppButton title="Login" onPress={() => console.log("Tapped")} />
     </View>
   );
 }
