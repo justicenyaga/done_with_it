@@ -15,9 +15,11 @@ export default function App() {
           backgroundColor: "dodgerblue",
           width: 100,
           height: 100,
-          borderWidth: 10,
-          borderColor: "royalblue",
-          borderRadius: 50, // if the border radius is at least half of the width, the result will be a perfect circle
+          shadowColor: "grey",
+          shadowOffset: { width: 10, height: 10 },
+          shadowOpacity: 1,
+          shadowRadius: 10,
+          elevation: 20,
         }}
       ></View>
     </View>
