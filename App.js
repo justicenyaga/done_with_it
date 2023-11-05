@@ -5,7 +5,7 @@ import MessagesScreen from "./app/screens/MessagesScreen";
 
 const App = () => {
   return (
-    <GestureHandlerRootView>
+    <GestureHandlerRootView style={{ flex: 1 }}>
       <MessagesScreen />
     </GestureHandlerRootView>
   );
