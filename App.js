@@ -6,7 +6,15 @@ export default function App() {
     <SafeAreaView style={styles.container}>
       <Text>Hello React Native</Text>
 
-      <Image source={require("./assets/favicon.png")} />
+      <Image
+        blurRadius={10}
+        fadeDuration={1000}
+        source={{
+          width: 200,
+          height: 300,
+          uri: "https://picsum.photos/200/300",
+        }}
+      />
     </SafeAreaView>
   );
 }
