@@ -1,12 +1,17 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, SafeAreaView } from "react-native";
 
 export default function App() {
+  const handlePress = () => console.log("Text Clicked");
+
   return (
-    <View style={styles.container}>
-      <Text>Hello Justice!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaView style={styles.container}>
+      <Text numberOfLines={1} onPress={handlePress}>
+        React Native is fun - This is a really really long text. I wanna make
+        this even longer and see what happens
+      </Text>
+      {/* <StatusBar style="auto" /> */}
+    </SafeAreaView>
   );
 }
 
@@ -14,7 +19,5 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "dodgerblue",
-    alignItems: "center",
-    justifyContent: "center",
   },
 });
