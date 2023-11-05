@@ -1,9 +1,9 @@
 import React from "react";
 
-import ListingDetailsScreen from "./app/screens/ListingDetailsScreen";
+import ViewImageScreen from "./app/screens/ViewImageScreen";
 
 const App = () => {
-  return <ListingDetailsScreen />;
+  return <ViewImageScreen />;
 };
 
 export default App;
