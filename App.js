@@ -1,27 +1,22 @@
 import {
   StyleSheet,
   SafeAreaView,
-  Button,
-  Alert,
   Platform,
   StatusBar,
+  View,
+  Dimensions,
 } from "react-native";
 
 export default function App() {
+  const window = Dimensions.get("window");
+  const screen = Dimensions.get("screen");
+
+  console.log("Screen", screen);
+  console.log("Window", window);
+
   return (
     <SafeAreaView style={styles.container}>
-      <Button
-        title="Click Me"
-        color="orange"
-        onPress={
-          () =>
-            Alert.alert("My Title", "My message", [
-              { text: "Yes", onPress: () => console.log("Yes") },
-              { text: "No", onPress: () => console.log("No") },
-            ])
-          // Alert.prompt("My title", "My message", (text) => console.log(text)) // IOS Only
-        }
-      />
+      <View style={{ width: 180, height: 70, backgroundColor: "dodgerblue" }} />
     </SafeAreaView>
   );
 }
