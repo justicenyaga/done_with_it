@@ -10,20 +10,25 @@ export default function App() {
         flexDirection: "row", // define the main axis
         justifyContent: "center", // align along the main (Primary) axis
         alignItems: "center", // align along the secondary axis
+        flexWrap: "wrap", // prevents shrinking when items overflow on the main axis
+
+        // when wrapping is enables, alignitems behaves different - determines the alignment of items on each lines
+        // to aling items along the secondary axis of the entire content, we use alignContent
+
+        alignContent: "center",
       }}
     >
       <View
         style={{
           width: 100,
-          height: 200,
+          height: 300,
           backgroundColor: "dodgerblue",
-          alignSelf: "flex-start", // aligning individual items along the secondary axis
         }}
       />
       <View
         style={{
           width: 100,
-          height: 150,
+          height: 100,
           backgroundColor: "gold",
         }}
       />
@@ -32,6 +37,20 @@ export default function App() {
           width: 100,
           height: 100,
           backgroundColor: "tomato",
+        }}
+      />
+      <View
+        style={{
+          width: 100,
+          height: 100,
+          backgroundColor: "grey",
+        }}
+      />
+      <View
+        style={{
+          width: 100,
+          height: 100,
+          backgroundColor: "greenyellow",
         }}
       />
     </View>
