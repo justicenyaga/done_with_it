@@ -5,20 +5,30 @@ export default function App() {
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
       <View
         style={{
+          backgroundColor: "dodgerblue",
           width: 100,
           height: 100,
-          backgroundColor: "dodgerblue",
-
-          // IOS props to create a shadow
-          shadowColor: "grey",
-          shadowOffset: { height: 10, width: 10 },
-          shadowOpacity: 1, // between 0 and 1
-          shadowRadius: 10,
-
-          //Android props to create a shadow - unfortunately doesn't really work well as the IOS shadow
-          elevation: 10,
+          padding: 20,
+          paddingHorizontal: 10,
+          paddingLeft: 30,
         }}
-      ></View>
+      >
+        <View
+          style={{
+            width: 50,
+            height: 50,
+            backgroundColor: "gold",
+          }}
+        />
+      </View>
+      <View
+        style={{
+          backgroundColor: "tomato",
+          width: 100,
+          height: 100,
+          margin: 20,
+        }}
+      />
     </View>
   );
 }
