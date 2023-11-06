@@ -1,14 +1,9 @@
 import React from "react";
-import { GestureHandlerRootView } from "react-native-gesture-handler";
 
-import ListingsScreen from "./app/screens/ListingsScreen";
+import Screen from "./app/components/Screen";
 
 const App = () => {
-  return (
-    <GestureHandlerRootView style={{ flex: 1 }}>
-      <ListingsScreen />
-    </GestureHandlerRootView>
-  );
+  return <Screen></Screen>;
 };
 
 export default App;
