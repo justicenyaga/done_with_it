@@ -1,15 +1,17 @@
 import React from "react";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 
-import MessagesScreen from "./app/screens/MessagesScreen";
-import Screen from "./app/components/Screen";
 import Icon from "./app/components/Icon";
+import ListItem from "./app/components/ListItem";
+import Screen from "./app/components/Screen";
 
 const App = () => {
   return (
-    <Screen>
-      <Icon name="email" size={50} backgroundColor="red" iconColor="white" />
-    </Screen>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <Screen>
+        <ListItem title="My Title" ImageComponent={<Icon name="email" />} />
+      </Screen>
+    </GestureHandlerRootView>
   );
 };
 
