@@ -1,9 +1,15 @@
 import React from "react";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
-import RegisterScreen from "./app/screens/RegisterScreen";
+import Screen from "./app/components/Screen";
+import MessagesScreen from "./app/screens/MessagesScreen";
 
 const App = () => {
-  return <RegisterScreen />;
+  return (
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <MessagesScreen />
+    </GestureHandlerRootView>
+  );
 };
 
 export default App;
