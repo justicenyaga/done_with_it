@@ -1,9 +1,9 @@
 import React from "react";
 
-import ListingEditScreen from "./app/screens/ListingEditScreen";
+import RegisterScreen from "./app/screens/RegisterScreen";
 
 const App = () => {
-  return <ListingEditScreen />;
+  return <RegisterScreen />;
 };
 
 export default App;
