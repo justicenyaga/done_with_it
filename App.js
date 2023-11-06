@@ -1,7 +1,6 @@
 import React from "react";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 
-import Screen from "./app/components/Screen";
 import MessagesScreen from "./app/screens/MessagesScreen";
 
 const App = () => {
