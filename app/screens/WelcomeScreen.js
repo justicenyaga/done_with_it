@@ -1,7 +1,7 @@
 import React from "react";
 import { Image, ImageBackground, StyleSheet, Text, View } from "react-native";
 
-import AppButton from "../components/AppButton";
+import Button from "../components/Button";
 
 import colors from "../config/colors";
 
@@ -18,8 +18,8 @@ const WelcomeScreen = () => {
       </View>
 
       <View style={styles.buttonsContainer}>
-        <AppButton title="Login" onPress={() => console.log("Login tapped")} />
-        <AppButton
+        <Button title="Login" onPress={() => console.log("Login tapped")} />
+        <Button
           title="Register"
           color="secondary"
           onPress={() => console.log("Register  tapped")}
