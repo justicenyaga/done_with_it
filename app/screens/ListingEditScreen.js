@@ -98,6 +98,7 @@ const ListingEditScreen = () => {
         />
         <AppFormPicker
           items={categories}
+          numberOfColumns={3}
           PickerItemComponent={CategoryPickerItem}
           placeholder="Category"
           name="category"

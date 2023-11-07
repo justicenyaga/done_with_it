@@ -7,6 +7,7 @@ import ErrorMessage from "./ErrorMessage";
 const AppFormPicker = ({
   items,
   name,
+  numberOfColumns,
   PickerItemComponent,
   placeholder,
   width,
@@ -17,6 +18,7 @@ const AppFormPicker = ({
     <>
       <AppPicker
         items={items}
+        numberOfColumns={numberOfColumns}
         onSelectItem={(item) => setFieldValue(name, item)}
         PickerItemComponent={PickerItemComponent}
         placeholder={placeholder}
