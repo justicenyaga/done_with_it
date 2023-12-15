@@ -1,12 +1,24 @@
-import React from "react";
-import { View } from "react-native";
-import AppText from "./components/AppText";
 
-export default function App() {
+import Reac, { useState } from "react";
+import { Text, TextInput } from "react-native";
+
+import Screen from "./app/components/Screen";
+
+const App = () => {
+  const [firstName, setFirstName] = useState("");
+
   return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <AppText>I love React Native! </AppText>
-
-    </View>
+    <Screen>
+      <Text>{firstName}</Text>
+      <TextInput
+        secureTextEntry
+        keyboardType="numeric"
+        onChangeText={(text) => setFirstName(text)}
+        style={{ borderBottomColor: "#ccc", borderBottomWidth: 1 }}
+        placeholder="First Name"
+      />
+    </Screen>
   );
-}
+};
+
+export default App;
