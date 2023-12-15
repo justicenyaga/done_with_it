@@ -1,24 +1,9 @@
+import React from "react";
 
-import Reac, { useState } from "react";
-import { Text, TextInput } from "react-native";
-
-import Screen from "./app/components/Screen";
+import ListingEditScreen from "./app/screens/ListingEditScreen";
 
 const App = () => {
-  const [firstName, setFirstName] = useState("");
-
-  return (
-    <Screen>
-      <Text>{firstName}</Text>
-      <TextInput
-        secureTextEntry
-        keyboardType="numeric"
-        onChangeText={(text) => setFirstName(text)}
-        style={{ borderBottomColor: "#ccc", borderBottomWidth: 1 }}
-        placeholder="First Name"
-      />
-    </Screen>
-  );
+  return <ListingEditScreen />;
 };
 
 export default App;
