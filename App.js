@@ -1,10 +1,16 @@
-import React from "react";
-import { GestureHandlerRootView } from "react-native-gesture-handler";
+import React, { useState } from "react";
 
-import ListingEditScreen from "./app/screens/ListingEditScreen";
+import ImageInput from "./app/components/ImageInput";
+import Screen from "./app/components/Screen";
 
 const App = () => {
-  return <ListingEditScreen />;
+  const [imageUri, setImageUri] = useState();
+
+  return (
+    <Screen>
+      <ImageInput imageUrl={imageUri} onChangeImage={setImageUri} />
+    </Screen>
+  );
 };
 
 export default App;
