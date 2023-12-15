@@ -1,13 +1,12 @@
 import React from "react";
 import { View } from "react-native";
-
-import WelcomeScreen from "./screens/WelcomeScreen";
-import ViewImageScreen from "./screens/ViewImageScreen";
+import AppText from "./components/AppText";
 
 export default function App() {
   return (
-    <View style={{ backgroundColor: "yellow", flex: 1 }}>
-      <WelcomeScreen />
+    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+      <AppText>I love React Native! </AppText>
+
     </View>
   );
 }
