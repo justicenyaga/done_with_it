@@ -8,7 +8,10 @@ import Screen from "./app/components/Screen";
 const Link = () => {
   const navigation = useNavigation();
   return (
-    <Button title="Click" onPress={() => navigation.navigate("TweetDetails")} />
+    <Button
+      title="Click"
+      onPress={() => navigation.navigate("TweetDetails", { id: 1 })} // Add the second parameter to pass parameters to the route
+    />
   );
 };
 
@@ -25,9 +28,11 @@ const Tweets = ({ navigation }) => (
     <Link />
   </Screen>
 );
-const TweetDetails = () => (
+const TweetDetails = ({ route }) => (
+  // route prop works on Screen elements. use the route hook to use it on child components
+
   <Screen>
-    <Text>TweetDetails</Text>
+    <Text>TweetDetails {route.params.id}</Text>
   </Screen>
 );
 
