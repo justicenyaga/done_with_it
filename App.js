@@ -40,7 +40,11 @@ const Stack = createNativeStackNavigator();
 const StackNavigator = () => (
   <Stack.Navigator initialRouteName="Tweets">
     {/* if the initialRouteName is not provided.. renders the first screen as the initialRoute */}
-    <Stack.Screen name="TweetDetails" component={TweetDetails} />
+    <Stack.Screen
+      name="TweetDetails"
+      component={TweetDetails}
+      options={({ route }) => ({ title: `Tweet ${route.params.id} Details` })}
+    />
     <Stack.Screen name="Tweets" component={Tweets} />
   </Stack.Navigator>
 );
