@@ -6,7 +6,7 @@ export default useLocation = () => {
 
   const getLocation = async () => {
     try {
-      const { granted } = await Location.requestBackgroundPermissionsAsync();
+      const { granted } = await Location.requestForegroundPermissionsAsync();
       if (!granted) {
         setLocation("Location not enabled");
         return;
