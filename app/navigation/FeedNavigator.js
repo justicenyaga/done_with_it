@@ -4,6 +4,8 @@ import {
   TransitionPresets,
 } from "@react-navigation/stack";
 
+import routes from "./routes";
+
 import ListingDetailsScreen from "../screens/ListingDetailsScreen";
 import ListingsScreen from "../screens/ListingsScreen";
 
@@ -18,8 +20,11 @@ const FeedNavigator = () => (
       ...TransitionPresets.ModalSlideFromBottomIOS,
     }}
   >
-    <Stack.Screen name="Listings" component={ListingsScreen} />
-    <Stack.Screen name="ListingDetails" component={ListingDetailsScreen} />
+    <Stack.Screen name={routes.LISTINGS} component={ListingsScreen} />
+    <Stack.Screen
+      name={routes.LISTING_DETAILS}
+      component={ListingDetailsScreen}
+    />
   </Stack.Navigator>
 );
 
