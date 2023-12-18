@@ -22,7 +22,7 @@ const listings = [
 
 const ListingsScreen = ({ navigation }) => {
   return (
-    <Screen style={styles.screen} usePadding={false}>
+    <Screen style={styles.screen}>
       <View style={styles.container}>
         <FlatList
           data={listings}
