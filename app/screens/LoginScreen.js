@@ -12,7 +12,7 @@ const validationSchema = Yup.object().shape({
 
 const LoginScreen = () => {
   return (
-    <Screen style={styles.container}>
+    <Screen style={styles.container} usePadding={false}>
       <Image style={styles.logo} source={require("../assets/logo-red.png")} />
 
       <Form
