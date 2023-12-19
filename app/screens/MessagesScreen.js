@@ -11,16 +11,15 @@ import Screen from "../components/Screen";
 const initialMessages = [
   {
     id: 1,
-    title:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam accumsan sapien ac metus malesuada vulputate. Mauris aliquet ipsum enim, a volutpat quam gravida vel. Phasellus quis est ut enim aliquam dictum ut eu felis. Sed sed ex a augue efficitur dictum laoreet scelerisque diam. Suspendisse vel lorem tempus, varius tortor non, semper purus. Suspendisse id dui feugiat, tristique dolor ac, maximus velit. Duis vestibulum maximus mi eget egestas.",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam accumsan sapien ac metus malesuada vulputate. Mauris aliquet ipsum enim, a volutpat quam gravida vel. Phasellus quis est ut enim aliquam dictum ut eu felis. Sed sed ex a augue efficitur dictum laoreet scelerisque diam. Suspendisse vel lorem tempus, varius tortor non, semper purus. Suspendisse id dui feugiat, tristique dolor ac, maximus velit. Duis vestibulum maximus mi eget egestas.",
+    title: "Justice Nyaga",
+    description: "Hey! Is this item still available?",
     image: require("../assets/justice.jpg"),
   },
   {
     id: 2,
-    title: "T2",
-    description: "D2",
+    title: "Justice Nyaga",
+    description:
+      "I'm interested in this item. When will you be able to post it?",
     image: require("../assets/justice.jpg"),
   },
 ];
@@ -34,7 +33,7 @@ const MessagesScreen = () => {
   };
 
   return (
-    <Screen>
+    <Screen usePadding={false}>
       <FlatList
         data={messages}
         keyExtractor={(message) => message.id.toString()}

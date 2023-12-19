@@ -13,7 +13,7 @@ const validationSchema = Yup.object().shape({
 
 const RegisterScreen = () => {
   return (
-    <Screen style={styles.container}>
+    <Screen style={styles.container} usePadding={false}>
       <Form
         initialValues={{ name: "", email: "", password: "" }}
         onSubmit={(values) => console.log(values)}

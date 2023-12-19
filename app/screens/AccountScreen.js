@@ -2,10 +2,11 @@ import React from "react";
 import { FlatList, StyleSheet, View } from "react-native";
 
 import Icon from "../components/Icon";
+import Screen from "../components/Screen";
 import { ListItem, ListItemSeparator } from "../components/lists";
 
-import Screen from "../components/Screen";
 import colors from "../config/colors";
+import routes from "../navigation/routes";
 
 const menuItems = [
   {
@@ -21,12 +22,13 @@ const menuItems = [
       name: "email",
       backgroundColor: colors.secondary,
     },
+    targetScreen: routes.MESSAGES,
   },
 ];
 
-const AccountScreen = () => {
+const AccountScreen = ({ navigation }) => {
   return (
-    <Screen style={styles.screen}>
+    <Screen style={styles.screen} usePadding={false}>
       <View style={styles.container}>
         <ListItem
           title="Justice Nyaga"
@@ -49,6 +51,7 @@ const AccountScreen = () => {
                   backgroundColor={item.icon.backgroundColor}
                 />
               }
+              onPress={() => navigation.navigate(item.targetScreen)}
             />
           )}
         />
