@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { ActivityIndicator, FlatList, StyleSheet, View } from "react-native";
+import { FlatList, StyleSheet, View } from "react-native";
 
+import ActivityIndicator from "../components/ActivityIndicator";
 import Button from "../components/Button";
 import Card from "../components/Card";
 import Screen from "../components/Screen";
@@ -42,7 +43,7 @@ const ListingsScreen = ({ navigation }) => {
           </>
         )}
 
-        <ActivityIndicator animating size="large" />
+        <ActivityIndicator visible={loading} />
         <FlatList
           data={listings}
           keyExtractor={(listing) => listing.id.toString()}
@@ -63,6 +64,7 @@ const ListingsScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     padding: 20,
+    flex: 1,
   },
   screen: {
     backgroundColor: colors.light,
