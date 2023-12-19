@@ -2,7 +2,7 @@ import client from "./client";
 
 const endpoint = "/listings";
 
-const addListing = (listing) => {
+const addListing = (listing, onUploadProgress) => {
   const data = new FormData();
 
   data.append("title", listing.title);
@@ -23,6 +23,8 @@ const addListing = (listing) => {
 
   return client.post(endpoint, data, {
     headers: { "Content-Type": "multipart/form-data" },
+    onUploadProgress: (progress) =>
+      onUploadProgress(progress.loaded / progress.total),
   });
 };
 
