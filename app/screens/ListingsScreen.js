@@ -29,9 +29,7 @@ const ListingsScreen = ({ navigation }) => {
       <View style={styles.container}>
         {error && (
           <>
-            <Text style={{ textAlign: "center" }}>
-              Couldn't retrieve the listings
-            </Text>
+            <Text style={styles.error}>Couldn't retrieve the listings</Text>
             <Button title="Retry" onPress={loadListings} />
           </>
         )}
@@ -58,6 +56,9 @@ const styles = StyleSheet.create({
   container: {
     padding: 20,
     flex: 1,
+  },
+  error: {
+    alignSelf: "center",
   },
   screen: {
     backgroundColor: colors.light,
