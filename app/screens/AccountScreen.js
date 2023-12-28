@@ -28,7 +28,7 @@ const menuItems = [
 
 const AccountScreen = ({ navigation }) => {
   return (
-    <Screen style={styles.screen} usePadding={false}>
+    <Screen style={styles.screen} disablePaddingTop>
       <View style={styles.container}>
         <ListItem
           title="Justice Nyaga"

@@ -7,9 +7,12 @@ import AppNavigator from "./app/navigation/AppNavigator";
 import AuthNavigator from "./app/navigation/AuthNavigator";
 import navigationTheme from "./app/navigation/navigationTheme";
 
+import OfflineNotice from "./app/components/OfflineNotice";
+
 const App = () => {
   return (
     <GestureHandlerRootView style={styles.container}>
+      <OfflineNotice />
       <NavigationContainer theme={navigationTheme}>
         <AppNavigator />
       </NavigationContainer>

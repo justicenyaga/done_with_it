@@ -29,9 +29,7 @@ const ListingsScreen = ({ navigation }) => {
       <View style={styles.container}>
         {error && (
           <>
-            <Text style={{ textAlign: "center" }}>
-              Couldn't retrieve the listings
-            </Text>
+            <Text style={styles.error}>Couldn't retrieve the listings</Text>
             <Button title="Retry" onPress={loadListings} />
           </>
         )}
@@ -45,6 +43,7 @@ const ListingsScreen = ({ navigation }) => {
               title={item.title}
               subTitle={"$" + item.price}
               imageUrl={item.images[0].url}
+              thumbnailUrl={item.images[0].thumbnailUrl}
               onPress={() => navigation.navigate(routes.LISTING_DETAILS, item)}
             />
           )}
@@ -58,6 +57,9 @@ const styles = StyleSheet.create({
   container: {
     padding: 20,
     flex: 1,
+  },
+  error: {
+    alignSelf: "center",
   },
   screen: {
     backgroundColor: colors.light,

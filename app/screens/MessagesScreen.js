@@ -33,7 +33,7 @@ const MessagesScreen = () => {
   };
 
   return (
-    <Screen usePadding={false}>
+    <Screen disablePaddingTop>
       <FlatList
         data={messages}
         keyExtractor={(message) => message.id.toString()}
