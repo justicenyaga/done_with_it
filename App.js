@@ -14,7 +14,7 @@ const App = () => {
     <GestureHandlerRootView style={styles.container}>
       <OfflineNotice />
       <NavigationContainer theme={navigationTheme}>
-        <AppNavigator />
+        <AuthNavigator />
       </NavigationContainer>
     </GestureHandlerRootView>
   );
