@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import Constants from "expo-constants";
-import * as Notification from "expo-notifications";
+import * as Notifications from "expo-notifications";
 
 import AccountNavigator from "./AccountNavigator";
 import NewListingButton from "./NewListingButton";
@@ -12,19 +12,31 @@ import expoPushTokensApi from "../api/expoPushTokens";
 
 import ListingEditScreen from "../screens/ListingEditScreen";
 
+Notifications.setNotificationHandler({
+  handleNotification: async () => ({
+    shouldShowAlert: true,
+    shouldPlaySound: true,
+    shouldSetBadge: true,
+  }),
+});
+
 const Tab = createBottomTabNavigator();
 
 const AppNavigator = () => {
   useEffect(() => {
     registerForPushNotifications();
+
+    Notifications.addNotificationReceivedListener((notification) =>
+      console.log(notification.request)
+    );
   }, []);
 
   const registerForPushNotifications = async () => {
     try {
-      const { granted } = await Notification.requestPermissionsAsync();
+      const { granted } = await Notifications.requestPermissionsAsync();
       if (!granted) return;
 
-      const { data: token } = await Notification.getExpoPushTokenAsync({
+      const { data: token } = await Notifications.getExpoPushTokenAsync({
         projectId: Constants.easConfig.projectId,
       });
 
