@@ -8,6 +8,7 @@ import AccountNavigator from "./AccountNavigator";
 import NewListingButton from "./NewListingButton";
 import FeedNavigator from "./FeedNavigator";
 import routes from "./routes";
+import expoPushTokensApi from "../api/expoPushTokens";
 
 import ListingEditScreen from "../screens/ListingEditScreen";
 
@@ -23,11 +24,11 @@ const AppNavigator = () => {
       const { granted } = await Notification.requestPermissionsAsync();
       if (!granted) return;
 
-      const token = await Notification.getExpoPushTokenAsync({
+      const { data: token } = await Notification.getExpoPushTokenAsync({
         projectId: Constants.easConfig.projectId,
       });
 
-      console.log(token);
+      expoPushTokensApi.register(token);
     } catch (error) {
       console.log("Error getting a push token", error);
     }
