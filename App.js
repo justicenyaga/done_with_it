@@ -8,6 +8,7 @@ import * as SplashScreen from "expo-splash-screen";
 import AppNavigator from "./app/navigation/AppNavigator";
 import AuthNavigator from "./app/navigation/AuthNavigator";
 import navigationTheme from "./app/navigation/navigationTheme";
+import { navigationRef } from "./app/navigation/rootNavigation";
 
 import OfflineNotice from "./app/components/OfflineNotice";
 import AuthContext from "./app/auth/context";
@@ -47,7 +48,7 @@ const App = () => {
     >
       <AuthContext.Provider value={{ user, setUser }}>
         <OfflineNotice />
-        <NavigationContainer theme={navigationTheme}>
+        <NavigationContainer ref={navigationRef} theme={navigationTheme}>
           {user ? <AppNavigator /> : <AuthNavigator />}
         </NavigationContainer>
       </AuthContext.Provider>

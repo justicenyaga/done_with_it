@@ -4,11 +4,13 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import Constants from "expo-constants";
 import * as Notifications from "expo-notifications";
 
-import AccountNavigator from "./AccountNavigator";
-import NewListingButton from "./NewListingButton";
-import FeedNavigator from "./FeedNavigator";
-import routes from "./routes";
 import expoPushTokensApi from "../api/expoPushTokens";
+
+import AccountNavigator from "./AccountNavigator";
+import FeedNavigator from "./FeedNavigator";
+import NewListingButton from "./NewListingButton";
+import routes from "./routes";
+import navigation from "./rootNavigation";
 
 import ListingEditScreen from "../screens/ListingEditScreen";
 
@@ -26,9 +28,11 @@ const AppNavigator = () => {
   useEffect(() => {
     registerForPushNotifications();
 
-    Notifications.addNotificationReceivedListener((notification) =>
-      console.log(notification.request)
-    );
+    Notifications.addNotificationReceivedListener((notification) => {});
+
+    Notifications.addNotificationResponseReceivedListener((response) => {
+      navigation.navigate("Account", { screen: routes.ACCOUNT });
+    });
   }, []);
 
   const registerForPushNotifications = async () => {
