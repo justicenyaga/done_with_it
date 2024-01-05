@@ -13,6 +13,9 @@ import { navigationRef } from "./app/navigation/rootNavigation";
 import OfflineNotice from "./app/components/OfflineNotice";
 import AuthContext from "./app/auth/context";
 import authStorage from "./app/auth/storage";
+import logger from "./app/util/logger";
+
+logger.start();
 
 // Keep the splash screen visible while we fetch the resources
 SplashScreen.preventAutoHideAsync();

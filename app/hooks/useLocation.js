@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import * as Location from "expo-location";
 
+import logger from "../util/logger";
+
 export default useLocation = () => {
   const [location, setLocation] = useState();
 
@@ -22,7 +24,7 @@ export default useLocation = () => {
       } = lastKnownPosition;
       setLocation({ longitude, latitude });
     } catch (error) {
-      console.log(error);
+      logger.log(error);
     }
   };
 

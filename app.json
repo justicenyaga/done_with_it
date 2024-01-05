@@ -12,9 +12,7 @@
       "resizeMode": "cover",
       "backgroundColor": "#e63c4b"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.justicenyaga.DoneWithIt"
@@ -33,6 +31,18 @@
       "eas": {
         "projectId": "32625033-68a5-41bd-91da-c176aa7158cb"
       }
-    }
+    },
+    "hooks": {
+      "postPublish": [
+        {
+          "file": "sentry-expo/upload-sourcemaps",
+          "config": {
+            "organization": "SENTRY_ORG",
+            "project": "SENTRY_PROJECT"
+          }
+        }
+      ]
+    },
+    "plugins": ["sentry-expo"]
   }
 }
