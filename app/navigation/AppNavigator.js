@@ -1,10 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import Constants from "expo-constants";
-import * as Notifications from "expo-notifications";
 
-import expoPushTokensApi from "../api/expoPushTokens";
+import useNotifications from "../hooks/useNotifications";
 
 import AccountNavigator from "./AccountNavigator";
 import FeedNavigator from "./FeedNavigator";
@@ -14,41 +12,14 @@ import navigation from "./rootNavigation";
 
 import ListingEditScreen from "../screens/ListingEditScreen";
 
-Notifications.setNotificationHandler({
-  handleNotification: async () => ({
-    shouldShowAlert: true,
-    shouldPlaySound: true,
-    shouldSetBadge: true,
-  }),
-});
-
 const Tab = createBottomTabNavigator();
 
 const AppNavigator = () => {
-  useEffect(() => {
-    registerForPushNotifications();
-
-    Notifications.addNotificationReceivedListener((notification) => {});
-
-    Notifications.addNotificationResponseReceivedListener((response) => {
-      navigation.navigate("Account", { screen: routes.ACCOUNT });
-    });
-  }, []);
-
-  const registerForPushNotifications = async () => {
-    try {
-      const { granted } = await Notifications.requestPermissionsAsync();
-      if (!granted) return;
-
-      const { data: token } = await Notifications.getExpoPushTokenAsync({
-        projectId: Constants.easConfig.projectId,
-      });
-
-      expoPushTokensApi.register(token);
-    } catch (error) {
-      console.log("Error getting a push token", error);
-    }
+  const responseReceivedListener = (response) => {
+    navigation.navigate("Account", { screen: routes.ACCOUNT });
   };
+
+  useNotifications(null, responseReceivedListener);
 
   return (
     <Tab.Navigator screenOptions={{ headerShown: false }}>
