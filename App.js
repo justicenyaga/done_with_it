@@ -1,65 +1,27 @@
-import React, { useCallback, useEffect, useState } from "react";
-import { StyleSheet } from "react-native";
-import { NavigationContainer } from "@react-navigation/native";
-import { GestureHandlerRootView } from "react-native-gesture-handler";
-import "core-js/stable/atob";
-import * as SplashScreen from "expo-splash-screen";
+import React from "react";
+import { Button } from "react-native";
+import * as Notifications from "expo-notifications";
 
-import AppNavigator from "./app/navigation/AppNavigator";
-import AuthNavigator from "./app/navigation/AuthNavigator";
-import navigationTheme from "./app/navigation/navigationTheme";
-import { navigationRef } from "./app/navigation/rootNavigation";
-
-import OfflineNotice from "./app/components/OfflineNotice";
-import AuthContext from "./app/auth/context";
-import authStorage from "./app/auth/storage";
-
-// Keep the splash screen visible while we fetch the resources
-SplashScreen.preventAutoHideAsync();
+import Screen from "./app/components/Screen";
 
 const App = () => {
-  const [user, setUser] = useState();
-  const [isReady, setIsReady] = useState(false);
-
-  const restoreUser = async () => {
-    const user = await authStorage.getUser();
-    setUser(user);
-    setIsReady(true);
+  const showNotification = () => {
+    Notifications.scheduleNotificationAsync({
+      content: {
+        title: "Congratulations",
+        body: "Your order was successfully placed",
+      },
+      trigger: {
+        seconds: 3,
+      },
+    });
   };
 
-  useEffect(() => {
-    restoreUser();
-  }, []);
-
-  const onLayoutRootView = useCallback(async () => {
-    if (isReady) {
-      await SplashScreen.hideAsync();
-    }
-  }, [isReady]);
-
-  if (!isReady) {
-    return null;
-  }
-
   return (
-    <GestureHandlerRootView
-      style={styles.container}
-      onLayout={onLayoutRootView}
-    >
-      <AuthContext.Provider value={{ user, setUser }}>
-        <OfflineNotice />
-        <NavigationContainer ref={navigationRef} theme={navigationTheme}>
-          {user ? <AppNavigator /> : <AuthNavigator />}
-        </NavigationContainer>
-      </AuthContext.Provider>
-    </GestureHandlerRootView>
+    <Screen>
+      <Button title="Tap me" onPress={showNotification} />
+    </Screen>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
 
 export default App;
