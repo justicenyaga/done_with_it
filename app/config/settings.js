@@ -2,13 +2,13 @@ import { releaseChannel } from "expo-updates";
 
 const settings = {
   dev: {
-    apiUrl: "http://192.168.121.228:9000/api",
+    apiUrl: "https://done-with-it-ba080be64146.herokuapp.com/api",
   },
   staging: {
-    apiUrl: "http://192.168.121.228:9000/api",
+    apiUrl: "https://done-with-it-ba080be64146.herokuapp.com/api",
   },
   prod: {
-    apiUrl: "http://192.168.121.228:9000/api",
+    apiUrl: "https://done-with-it-ba080be64146.herokuapp.com/api",
   },
 };
 
